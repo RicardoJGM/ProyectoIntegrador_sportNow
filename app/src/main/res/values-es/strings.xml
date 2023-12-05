@@ -6,4 +6,21 @@
     <string name="fecha">Fecha</string>
     <string name="evento">Evento</string>
     <string name="organizador">Organizador</string>
+    <string name="email">Correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="reset_password">Reestablecer contraseña</string>
+    <string name="hint_email_login">ejemplo@correo.com</string>
+    <string name="name_user">Nombre</string>
+    <string name="hint_name_user_register">Ingresa tu nombre</string>
+    <string name="paternal_surname">Apellido Paterno</string>
+    <string name="hint_first_surname">Ingresa tu apellido paterno</string>
+    <string name="second_surname">Apellido Materno</string>
+    <string name="hint_second_surname">Ingresa tu apellido materno</string>
+    <string name="confirm_password">Confirmar Contraseña</string>
+    <string name="hint_password">Debe contener caracteres especiales, mayúsculas y números</string>
+    <string name="hint_confirm_password">Confirma tu contraseña</string>
+    <string name="birthdate">Fecha de nacimiento</string>
+    <string name="hint_birthdate">Ingresa tu fecha de nacimiento</string>
+    <string name="button_cancel">Cancelar</string>
+    <string name="button_save">Guardar</string>
 </resources>
