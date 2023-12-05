@@ -12,7 +12,7 @@
     <string name="hint_email_login">ejemplo@correo.com</string>
     <string name="name_user">Nombre</string>
     <string name="hint_name_user_register">Ingresa tu nombre</string>
-    <string name="paternal_surname">Apellido Paterno</string>
+    <string name="first_surname">Apellido Paterno</string>
     <string name="hint_first_surname">Ingresa tu apellido paterno</string>
     <string name="second_surname">Apellido Materno</string>
     <string name="hint_second_surname">Ingresa tu apellido materno</string>
@@ -23,4 +23,5 @@
     <string name="hint_birthdate">Ingresa tu fecha de nacimiento</string>
     <string name="button_cancel">Cancelar</string>
     <string name="button_save">Guardar</string>
+    <string name="user_details">Detalles Usuario</string>
 </resources>

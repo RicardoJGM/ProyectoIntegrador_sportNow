@@ -23,4 +23,13 @@
         <!-- Otros atributos de texto según sea necesario -->
     </style>
 
+    <style name="CircularImageView" parent="">
+        <item name="shapeAppearanceOverlay">@style/CircleShape</item>
+    </style>
+
+    <style name="CircleShape">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>

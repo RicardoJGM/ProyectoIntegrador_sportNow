@@ -11,7 +11,7 @@
     <string name="hint_email_login">example@mail.com</string>
     <string name="name_user">Name</string>
     <string name="hint_name_user_register">Enter a your name</string>
-    <string name="paternal_surname">First Surname</string>
+    <string name="first_surname">First Surname</string>
     <string name="hint_first_surname">Enter your first surname</string>
     <string name="second_surname">Second surname</string>
     <string name="hint_second_surname">Enter your second surname</string>
@@ -22,4 +22,6 @@
     <string name="hint_birthdate">Enter your date of birth</string>
     <string name="button_cancel">Cancel</string>
     <string name="button_save">Save</string>
+    <string name="user_details">User Details</string>
+    <string name="hint_username">Enter a valid username</string>
 </resources>
