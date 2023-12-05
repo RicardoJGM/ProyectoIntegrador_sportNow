@@ -3,4 +3,7 @@
     <string name="app_name">SportsNow</string>
     <string name="login">Login</string>
     <string name="user_register">Register user</string>
+    <string name="fecha">Date</string>
+    <string name="evento">Event</string>
+    <string name="organizador">Event Planner</string>
 </resources>
