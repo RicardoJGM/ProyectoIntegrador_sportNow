@@ -2,8 +2,12 @@ package com.example.sportsnow
 
 class Evento {
     var nombre = "";
-    var fechaHoraInicio = 0;
-    var fechaHoraFinal = 0;
+    var fechaInicio = "";
+    var fechaFinal = "";
+    var tipoEvento = "";
+    var tipoActividad = "";
+    var horaInicio = "";
+    var horaFin = "";
     var organizador = "";
     var municipio = "";
     var ubicacion = "";

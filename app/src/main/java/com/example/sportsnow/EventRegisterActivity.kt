@@ -46,6 +46,9 @@ class EventRegisterActivity : AppCompatActivity() {
     private lateinit var rbSwimming : RadioButton
     private lateinit var rbBasketball : RadioButton
 
+    private lateinit var tipoEventoT: String
+    private lateinit var tipoActividadT: String
+
     private lateinit var ibNewEventImage : ImageButton
 
 
@@ -92,8 +95,11 @@ class EventRegisterActivity : AppCompatActivity() {
         btNewEventSave.setOnClickListener {
            val intent = Intent(this, EventDetailsActivity::class.java)
             guardar()
+            intent.putExtra("nombre", etNewEventName.text.toString())
+            intent.putExtra("fecha", etNewStartDate.text.toString())
+            intent.putExtra("municipio", spMunicipio.selectedItem.toString())
+            intent.putExtra("etiquetas", tipoActividadT)
             startActivity(intent)
-
         }
 
         btNewEventCancel.setOnClickListener {
@@ -126,12 +132,16 @@ class EventRegisterActivity : AppCompatActivity() {
 
         val tipoEvento = builderTpEvento.toString()
 
+        tipoEventoT = tipoEvento
+
         val futbol = if (rbSoccer.isChecked) builderTpActividad.append(rbSoccer.text.toString(), " ") else ""
         val beisbol = if (rbBaseball.isChecked) builderTpActividad.append(rbBaseball.text.toString(), " ") else ""
         val natacion = if (rbSwimming.isChecked) builderTpActividad.append(rbSwimming.text.toString(), " ") else ""
         val basquetbol = if (rbBasketball.isChecked) builderTpActividad.append(rbBasketball.text.toString(), " ") else ""
 
         val tipoActividad = builderTpActividad.toString()
+
+        tipoActividadT = tipoActividad
 
         val status = 1;
 

@@ -28,16 +28,17 @@ class EventoAdapter : RecyclerView.Adapter<EventoVH> {
         val evento : Evento = datos.get(position)
 
         holder.tvEvento.text = evento.nombre
-        holder.tvFecha.text = evento.fechaHoraInicio.toString()
+        holder.tvFecha.text = evento.fechaInicio
         holder.tvMunicipio.text = evento.municipio
         holder.tvOrgainzador.text = evento.organizador
-        holder.tvEtiquetas.text = "Categorias"
+        holder.tvEtiquetas.text = evento.tipoEvento
+        holder.tvEtiquetas.text = evento.tipoEvento
 
         holder.itemView.setOnClickListener {
             val intent = Intent(this.contexto, EventDetailsActivity :: class.java)
 
             intent.putExtra("nombre", evento.nombre)
-            intent.putExtra("fechaHoraInicio", evento.fechaHoraInicio)
+            intent.putExtra("fechaHoraInicio", evento.fechaInicio)
             intent.putExtra("municipio", evento.municipio)
             intent.putExtra("etiquetas", "")
             intent.putExtra("organizador", evento.organizador)

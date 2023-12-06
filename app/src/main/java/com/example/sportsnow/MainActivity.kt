@@ -126,6 +126,8 @@ class MainActivity : AppCompatActivity() {
 //                listaMunicipio.id_localLocation = municipio.getString("id_localLocation")
 //                listaMunicipio.loc_localNumber = municipio.getString("loc_localNumber")
                 listaEventos.nombre = evento.getString("event_id")
+                listaEventos.municipio = evento.getString("id_localLocation")
+                listaEventos.tipoEvento = evento.getString("id_eventsTP")
 //                listaMunicipio.loc_localName = municipio.getString("id_status ")
 //                listaMunicipio.status = municipio.getString("estado")
 
