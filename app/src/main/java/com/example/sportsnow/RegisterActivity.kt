@@ -62,13 +62,8 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun registrarUsuario() {
-        val nomUsuario          = etNombreUsuario.text
-        val etApellidoP         = etApellidoP.text
-        val etApellidoM         = etApellidoM.text
         val etEmail             = etEmail.text
         val etPassword          = etPassword.text
-        val etConfirmPassword   = etConfirmPassword.text
-        val etDate              = etDate.text
 
         crearUsuario(etEmail.toString(), etPassword.toString())
     }

@@ -2,6 +2,7 @@ package com.example.sportsnow
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -87,9 +88,9 @@ class EventRegisterActivity : AppCompatActivity() {
 
         btNewEventSave.setOnClickListener {
            val intent = Intent(this, EventDetailsActivity::class.java)
+            guardar()
             startActivity(intent)
 
-            guardar();
         }
 
         btNewEventCancel.setOnClickListener {
@@ -101,7 +102,7 @@ class EventRegisterActivity : AppCompatActivity() {
 
     private fun guardar() {
         val NewEventName = etNewEventName
-        val NewStartDate = etNewEndDate
+        val NewStartDate = etNewStartDate
         val NewEndDate = etNewEndDate
         val NewStartTime = etNewStartTime
         val NewEndTime = etNewEndTime
@@ -109,7 +110,79 @@ class EventRegisterActivity : AppCompatActivity() {
         val NewEventDesc = etNewEventDesc
         val NewEventSponsors = etNewEventSponsors
         val NewEventParticipants = etNewEventParticipants
-        val municipioSeleccionado = spMunicipio.selectedItem.toString()
+        val municipioSeleccionado = spMunicipio.selectedItemPosition+1
+
+        val status = 1;
+
+        val url = "http://192.168.1.161/sportnow/guardarEvento.php"
+
+        enviarDatos(
+            NewEventName.text.toString() ,
+            NewStartDate.text.toString(),
+            NewEndDate.text.toString(),
+            NewStartTime.text.toString(),
+            NewEndTime.text.toString(),
+            NewEventAddress.text.toString(),
+            NewEventDesc.text.toString(),
+            NewEventSponsors.text.toString(),
+            NewEventParticipants.text.toString(),
+            municipioSeleccionado.toString(),
+            status.toString(),
+            url)
+    }
+    private fun enviarDatos(
+        EventName: String,
+        StartDate: String,
+        EndDate: String,
+        StartTime: String,
+        EndTime: String,
+        EventAddress: String,
+        EventDesc: String,
+        EventSponsors: String,
+        EventParticipants: String,
+        municipioPosicion: String,
+        status: String,
+        url: String
+    ) {
+        val requestQueue = Volley.newRequestQueue(this)
+
+        val mapa = mutableMapOf<String, Any?>()
+
+        mapa.put("EventName", EventName)
+        mapa.put("StartDate",StartDate)
+        mapa.put("EndDate",EndDate)
+        mapa.put("StartTime",StartTime)
+        mapa.put("EndTime",EndTime)
+        mapa.put("EventAddress",EventAddress)
+        mapa.put("EventDesc",EventDesc)
+        mapa.put("EventSponsors",EventSponsors)
+        mapa.put("EventParticipants",EventParticipants)
+        mapa.put("municipioSeleccionado",municipioPosicion)
+        mapa.put("status",status)
+
+        val parametros : JSONObject = JSONObject( mapa )
+
+        val request : JsonObjectRequest = JsonObjectRequest(
+            Request.Method.POST,
+            url,
+            parametros,
+            Response.Listener { response ->
+                if(response.getBoolean("exito")){
+                    Log.e("RegisterActivity", "error")
+                    Toast.makeText(this, "Evento guardado con éxito", Toast.LENGTH_SHORT).show()
+                    finish()
+                }else {
+                    Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+                    Log.e("RegisterActivity", response.toString())
+                }
+            },
+            Response.ErrorListener { error ->
+                Log.e("RegisterActivity", "error",error).toString()
+            }
+
+        )
+
+        requestQueue.add( request )
     }
 
     private fun llenarMunicipios(){
