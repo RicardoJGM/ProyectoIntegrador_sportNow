@@ -36,11 +36,41 @@
     <string name="event_address">Address</string>
     <string name="event_description">Event description</string>
     <string name="sponsors_optional">Sponsors (optional)</string>
-    <string name="event_type">Event type</string>
+    <string name="event_type">Type of event</string>
     <string name="social_event">Social event</string>
     <string name="charitable_cause">Charitable cause</string>
     <string name="competition">Competition</string>
     <string name="private_event">Private</string>
     <string name="user">User</string>
     <string name="next">Next</string>
+    <string name="activity_type">Type of activity</string>
+    <string name="hint_event_name">Enter the name for the event</string>
+    <string name="event_duration_time">Duration time</string>
+    <string name="hour_minutes">hh:mm</string>
+    <string name="hint_event_start_date">Enter the start date for the event</string>
+    <string name="hint_event_end_date">Enter the end date for the event</string>
+    <string name="hint_event_address">Where is the event going to take place</string>
+    <string name="hint_event_desc">Tell us more about the event</string>
+    <string name="hint_event_sponsors">Who sponsors the event</string>
+    <string name="large_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</string>
+    <string name="baseball">Baseball</string>
+    <string name="soccer">Soccer</string>
+    <string name="swimming">Swimming</string>
+    <string name="basketball">Basketball</string>
+    <string name="number_participants">Number of participants</string>
+    <string name="hint_number_participants">1 - 50 participants</string>
+    <string name="event_upload_image">Upload an image for a better reference (optional)</string>
+    <string name="event_details">Event details</string>
+    <string name="participate_event">Participate</string>
+    <string name="button_edit">Edit</string>
+    <string name="button_delete">Delete</string>
+    <string name="event_labels">Event labels (event type, type of activity)</string>
+
+    <string-array name="municipios_array">
+        <item>Municipio 1</item>
+        <item>Municipio 2</item>
+        <item>Municipio 3</item>
+    </string-array>
+
 </resources>
