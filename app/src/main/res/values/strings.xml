@@ -69,6 +69,7 @@
     <string name="cancel_inscription_event">Cancel event registration</string>
     <string name="see_forum">See forum</string>
     <string name="hint_message_forum">What\'s on your mind?</string>
+    <string name="signout">Sign out</string>
 
     <string-array name="municipios_array">
         <item>Municipio 1</item>

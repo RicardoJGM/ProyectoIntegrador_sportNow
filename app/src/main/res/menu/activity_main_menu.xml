@@ -19,6 +19,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:title="@string/user_details" />
+            <item
+                android:id="@+id/opc_signout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:icon="@drawable/baseline_exit_to_app_24"
+                android:title="@string/signout" />
         </menu>
     </item>
 </menu>

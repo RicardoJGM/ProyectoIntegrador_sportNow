@@ -1,9 +1,13 @@
 package com.example.sportsnow
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.Menu
 import android.view.MenuItem
 import androidx.recyclerview.widget.RecyclerView
@@ -34,6 +38,23 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.activity_main_menu, menu)
+        // Obtén la referencia al MenuItem que deseas cambiar
+        val signOutMenuItem = menu.findItem(R.id.opc_signout)
+
+        // Obtén el texto actual del MenuItem
+        val signOutMenuItemTitle = signOutMenuItem.title.toString()
+
+        // Crea una SpannableString y aplícale un ForegroundColorSpan
+        val spannable = SpannableString(signOutMenuItemTitle)
+        spannable.setSpan(
+            ForegroundColorSpan(Color.RED), // Cambia esto al color que desees
+            0,
+            signOutMenuItemTitle.length,
+            Spannable.SPAN_INCLUSIVE_INCLUSIVE
+        )
+
+        // Establece la SpannableString como el título del MenuItem
+        signOutMenuItem.title = spannable
         return super.onCreateOptionsMenu(menu)
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -46,6 +67,9 @@ class MainActivity : AppCompatActivity() {
             R.id.opc_usuario -> {
                 val intent = Intent(this, UserDetailsActivity::class.java)
                 startActivity(intent)
+            }
+            R.id.opc_signout -> {
+                //cerrar sesion
             }
         }
         return super.onOptionsItemSelected(item)
