@@ -43,4 +43,22 @@
     <string name="competition">Competición</string>
     <string name="private_event">Privado</string>
     <string name="user">Usuario</string>
+    <string name="next">Siguiente</string>
+    <string name="activity_type">Tipo de actividad</string>
+    <string name="hint_event_name">Ingresa el nombre del evento</string>
+    <string name="event_duration_time">Tiempo de duración</string>
+    <string name="hour_minutes">hh:mm</string>
+    <string name="hint_event_start_date">Fecha cuando inicia el evento</string>
+    <string name="hint_event_end_date">Fecha cuando termina el evento</string>
+    <string name="hint_event_address">Dirección donde ocurrirá el evento</string>
+    <string name="hint_event_desc">Cuéntanos más acerca del evento</string>
+    <string name="hint_event_sponsors">Quiénes patrocinan el evento</string>
+    <string name="large_text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "</string>
+    <string name="baseball">Béisbol</string>
+    <string name="soccer">Fútbol</string>
+    <string name="swimming">Natación</string>
+    <string name="basketball">Baloncesto</string>
+    <string name="number_participants">Cupo de participantes</string>
+    <string name="hint_number_participants">1 - 50 participantes</string>
+    <string name="event_upload_image">Sube una imagen relacionada con el evento (opcional)</string>
 </resources>
