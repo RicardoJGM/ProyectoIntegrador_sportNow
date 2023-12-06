@@ -3,6 +3,7 @@ package com.example.sportsnow
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 
@@ -20,7 +21,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro_usuario)
 
-        etNombreUsuario         =  findViewById(R.id.etNombreUsuarioRegistro)
+        etNombreUsuario         = findViewById(R.id.etNombreUsuarioRegistro)
         etApellidoP             = findViewById(R.id.etApellidoPaternoRegistro)
         etApellidoM             = findViewById(R.id.etApellidoMaternoRegistro)
         etEmail                 = findViewById(R.id.etEmailRegistro)
@@ -31,18 +32,34 @@ class RegisterActivity : AppCompatActivity() {
         btSave                  = findViewById(R.id.btSaveRegister)
 
         btCancel.setOnClickListener {
-            registrarUsuario()
             finish()
             val intent = Intent(this, InicioActivity::class.java)
             startActivity(intent)
         }
         btSave.setOnClickListener {
+            registrarUsuario()
+            finish()
             val intent = Intent(this, InicioActivity::class.java)
             startActivity(intent)
         }
     }
 
     private fun registrarUsuario() {
-        TODO("Not yet implemented")
+        val nomUsuario          = etNombreUsuario.text
+        val etApellidoP         = etApellidoP.text
+        val etApellidoM         = etApellidoM.text
+        val etEmail             = etEmail.text
+        val etPassword          = etPassword.text
+        val etConfirmPassword   = etConfirmPassword.text
+        val etDate              = etDate.text
+
+        Log.i("RegisterActivity.registrarUsuario", nomUsuario.toString())
+        Log.i("RegisterActivity", etApellidoP.toString())
+        Log.i("RegisterActivity", etApellidoM.toString())
+        Log.i("RegisterActivity", etEmail.toString())
+        Log.i("RegisterActivity", etPassword.toString())
+        Log.i("RegisterActivity", etConfirmPassword.toString())
+        Log.i("RegisterActivity", etDate.toString())
+
     }
 }
