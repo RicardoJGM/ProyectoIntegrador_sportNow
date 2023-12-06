@@ -62,4 +62,9 @@
     <string name="hint_number_participants">1 - 50 participantes</string>
     <string name="event_upload_image">Sube una imagen relacionada con el evento (opcional)</string>
     <string name="event_details">Detalles del evento</string>
+    <string name="participate_event">Participar</string>
+    <string name="button_edit">Editar</string>
+    <string name="button_delete">Eliminar</string>
+    <string name="event_labels">Etiquetas (tipo de evento, tipo de actividad)</string>
+    <string name="cancel_inscription_event">Cancelar registro al evento</string>
 </resources>
