@@ -7,21 +7,31 @@ import android.widget.Button
 import android.widget.EditText
 
 class RegisterActivity : AppCompatActivity() {
+    lateinit var etNombreUsuario : EditText
+    lateinit var etApellidoP : EditText
+    lateinit var etApellidoM : EditText
+    lateinit var etEmail : EditText
+    lateinit var etPassword : EditText
+    lateinit var etConfirmPassword : EditText
+    lateinit var etDate : EditText
+    lateinit var btCancel : Button
+    lateinit var btSave : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro_usuario)
 
-        val etNombreUsuario : EditText =  findViewById(R.id.etNombreUsuarioRegistro)
-        val etApellidoP : EditText = findViewById(R.id.etApellidoPaternoRegistro)
-        val etApellidoM : EditText = findViewById(R.id.etApellidoMaternoRegistro)
-        val etEmail : EditText = findViewById(R.id.etEmailRegistro)
-        val etPassword : EditText = findViewById(R.id.etPasswordRegistro)
-        val etConfirmPassword : EditText = findViewById(R.id.etConfirmPasswordRegistro)
-        val etDate : EditText = findViewById(R.id.etDateRegistro)
-        val btCancel : Button = findViewById(R.id.btCancelRegister)
-        val btSave : Button = findViewById(R.id.btSaveRegister)
+        etNombreUsuario         =  findViewById(R.id.etNombreUsuarioRegistro)
+        etApellidoP             = findViewById(R.id.etApellidoPaternoRegistro)
+        etApellidoM             = findViewById(R.id.etApellidoMaternoRegistro)
+        etEmail                 = findViewById(R.id.etEmailRegistro)
+        etPassword              = findViewById(R.id.etPasswordRegistro)
+        etConfirmPassword       = findViewById(R.id.etConfirmPasswordRegistro)
+        etDate                  = findViewById(R.id.etDateRegistro)
+        btCancel                = findViewById(R.id.btCancelRegister)
+        btSave                  = findViewById(R.id.btSaveRegister)
 
         btCancel.setOnClickListener {
+            registrarUsuario()
             finish()
             val intent = Intent(this, InicioActivity::class.java)
             startActivity(intent)
@@ -30,6 +40,9 @@ class RegisterActivity : AppCompatActivity() {
             val intent = Intent(this, InicioActivity::class.java)
             startActivity(intent)
         }
+    }
 
+    private fun registrarUsuario() {
+        TODO("Not yet implemented")
     }
 }
