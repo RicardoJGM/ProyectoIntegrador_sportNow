@@ -61,4 +61,5 @@
     <string name="number_participants">Cupo de participantes</string>
     <string name="hint_number_participants">1 - 50 participantes</string>
     <string name="event_upload_image">Sube una imagen relacionada con el evento (opcional)</string>
+    <string name="event_details">Detalles del evento</string>
 </resources>
