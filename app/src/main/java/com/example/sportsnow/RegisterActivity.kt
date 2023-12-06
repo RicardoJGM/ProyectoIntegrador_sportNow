@@ -95,6 +95,9 @@ class RegisterActivity : AppCompatActivity() {
     }
     private fun updateUI(user: FirebaseUser?) {
         val intent = Intent (this,MainActivity::class.java)
+        if (user != null) {
+            Log.i("RegisterActivity", user.uid.toString())
+        }else{Log.i("RegisterActivity", "no error")}
         startActivity(intent)
     }
     private fun guardar(UID : String) {

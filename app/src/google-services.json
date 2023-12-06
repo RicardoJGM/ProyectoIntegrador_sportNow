@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "651225584374",
-    "project_id": "integrador-2023---sporsnow",
-    "storage_bucket": "integrador-2023---sporsnow.appspot.com"
+    "project_number": "601180799664",
+    "project_id": "sportnow-1941e",
+    "storage_bucket": "sportnow-1941e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:651225584374:android:7538f5f4bbde83598b12d7",
+        "mobilesdk_app_id": "1:601180799664:android:584ca58e900e25a32d7175",
         "android_client_info": {
           "package_name": "com.example.sportsnow"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBM9hGsgGoM3VlWVXi-xrf6otjHAX9HYIM"
+          "current_key": "AIzaSyA-BGce-YXO_s1uJo6cYm07s7jDX_399oQ"
         }
       ],
       "services": {
