@@ -7,10 +7,15 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.auth
+import org.json.JSONObject
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var auth : FirebaseAuth
@@ -71,6 +76,11 @@ class RegisterActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val user = auth.currentUser
+
+                    if (user != null) {
+                        guardar(user.uid)
+                    }
+
                     updateUI(user)
                 } else {
                     Toast.makeText(
@@ -82,9 +92,74 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }
     }
-
     private fun updateUI(user: FirebaseUser?) {
         val intent = Intent (this,MainActivity::class.java)
         startActivity(intent)
     }
+    private fun guardar(UID : String) {
+        val claveUsuario = "usuario1"
+        val nombreUsuario = etNombreUsuario.text.toString()
+        val apellidoP  = etApellidoP.text.toString()
+        val apellidoM  = etApellidoM.text.toString()
+
+        val apellidos = apellidoP + apellidoM
+
+        val idFirebase = UID
+        val email      = etEmail.text.toString()
+        val password   = etPassword.text.toString()
+        val date       = etDate.text.toString()
+
+        val estado       = 1
+
+        val url = "http://192.168.1.161/sportnow/guardar.php"
+
+        enviarDatos(claveUsuario ,nombreUsuario, apellidos, email, date, password, idFirebase, estado, url)
+    }
+    private fun enviarDatos(
+        clave: String,
+        nombre: String,
+        apellidos: String,
+        email: String,
+        date: String,
+        password: String,
+        idFirebase: String,
+        estado: Int,
+        url: String
+    ) {
+        val requestQueue = Volley.newRequestQueue(this)
+
+        val mapa = mutableMapOf<String, Any?>()
+
+        mapa.put("clave", clave)
+        mapa.put("nombre",nombre)
+        mapa.put("apellidos",apellidos)
+        mapa.put("email",email)
+        mapa.put("date",date)
+        mapa.put("password",password)
+        mapa.put("idFirebase",idFirebase)
+        mapa.put("estado",estado)
+
+        val parametros : JSONObject = JSONObject( mapa )
+
+        val request : JsonObjectRequest = JsonObjectRequest(
+            Request.Method.POST,
+            url,
+            parametros,
+            Response.Listener { response ->
+                if(response.getBoolean("exito")){
+                    Log.e("RegisterActivity", "error")
+                    finish()
+                }else {
+                    Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+                }
+            },
+            Response.ErrorListener { error ->
+                Log.e("RegisterActivity", "error",error).toString()
+            }
+
+        )
+
+        requestQueue.add( request )
+    }
+
 }
