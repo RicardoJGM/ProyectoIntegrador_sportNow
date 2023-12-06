@@ -47,6 +47,8 @@ dependencies {
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.squareup.picasso3:picasso:3.0.0-alpha05")
     implementation("com.squareup.picasso:picasso:2.71828")
+    implementation("com.android.volley:volley:1.2.1")
+    implementation("com.squareup.picasso:picasso:2.71828")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

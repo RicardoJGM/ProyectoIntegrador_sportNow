@@ -53,13 +53,13 @@ class RegisterActivity : AppCompatActivity() {
         val etConfirmPassword   = etConfirmPassword.text
         val etDate              = etDate.text
 
-        Log.i("RegisterActivity.registrarUsuario", nomUsuario.toString())
-        Log.i("RegisterActivity", etApellidoP.toString())
-        Log.i("RegisterActivity", etApellidoM.toString())
-        Log.i("RegisterActivity", etEmail.toString())
-        Log.i("RegisterActivity", etPassword.toString())
-        Log.i("RegisterActivity", etConfirmPassword.toString())
-        Log.i("RegisterActivity", etDate.toString())
+//        Log.i("RegisterActivity.registrarUsuario", nomUsuario.toString())
+//        Log.i("RegisterActivity", etApellidoP.toString())
+//        Log.i("RegisterActivity", etApellidoM.toString())
+//        Log.i("RegisterActivity", etEmail.toString())
+//        Log.i("RegisterActivity", etPassword.toString())
+//        Log.i("RegisterActivity", etConfirmPassword.toString())
+//        Log.i("RegisterActivity", etDate.toString())
 
     }
 }
