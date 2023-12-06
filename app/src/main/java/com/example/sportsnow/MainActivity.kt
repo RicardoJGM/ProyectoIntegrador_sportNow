@@ -91,13 +91,9 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-    override fun onStart() {
-        super.onStart()
-        listarEventos()
-    }
     private fun listarEventos(){
         val requestQueue = Volley.newRequestQueue(this)
-        val url : String = "http://192.168.1.161/sportnow/listarEventos.php"
+        val url : String = "http://10.200.31.209/sportnow/listarEventos.php"
 
         val request : JsonObjectRequest = JsonObjectRequest(
             Request.Method.GET,
@@ -135,5 +131,9 @@ class MainActivity : AppCompatActivity() {
             }
             adapter.llenar(datos)
         }
+    }
+    override fun onStart() {
+        super.onStart()
+        listarEventos()
     }
 }

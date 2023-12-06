@@ -11,10 +11,10 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.auth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import org.json.JSONObject
 
 class RegisterActivity : AppCompatActivity() {
@@ -110,7 +110,7 @@ class RegisterActivity : AppCompatActivity() {
 
         val estado       = 1
 
-        val url = "http://192.168.1.161/sportnow/guardar.php"
+        val url = "http://10.200.31.209/sportnow/guardar.php"
 
         enviarDatos(claveUsuario ,nombreUsuario, apellidos, email, date, password, idFirebase, estado, url)
     }
