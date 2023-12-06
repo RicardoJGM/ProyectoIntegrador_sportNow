@@ -10,16 +10,33 @@ import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
+import org.json.JSONArray
+import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
+    lateinit var rvEventos : RecyclerView
+    lateinit var adapter : EventoAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val rvEventos : RecyclerView = findViewById(R.id.rvEventos)
+        rvEventos = findViewById(R.id.rvEventos)
         val fabNuevoEvento : FloatingActionButton = findViewById(R.id.fabNuevoEvento)
+
+        adapter = EventoAdapter(this)
+
+        rvEventos.adapter = adapter
+
+        val linearLayoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        rvEventos.layoutManager = linearLayoutManager
 
         /*
         if( usuario esta verificado){
@@ -73,5 +90,48 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+    override fun onStart() {
+        super.onStart()
+        listarEventos()
+    }
+    private fun listarEventos(){
+        val requestQueue = Volley.newRequestQueue(this)
+        val url : String = "http://192.168.1.161/sportnow/listarEventos.php"
+
+        val request : JsonObjectRequest = JsonObjectRequest(
+            Request.Method.GET,
+            url,
+            null,
+            Response.Listener { response ->
+                llenarListaEventos(response)
+            },
+            Response.ErrorListener { error ->
+                Toast.makeText(this, "Error: $error", Toast.LENGTH_SHORT).show()
+                //Log.i("MainActivity.consultarVideojuego()", error.toString())
+            })
+        requestQueue.add( request )
+    }
+
+    private fun llenarListaEventos(response: JSONObject?) {
+        if (response != null && response.getBoolean("exito")){
+            val lista : JSONArray = response.getJSONArray("lista")
+            val datos : ArrayList<Evento> = ArrayList()
+
+            for (i in 0 until lista.length()){
+                val evento = lista.getJSONObject(i)
+
+                val listaEventos = Evento()
+
+//                listaMunicipio.id_localLocation = municipio.getString("id_localLocation")
+//                listaMunicipio.loc_localNumber = municipio.getString("loc_localNumber")
+                listaEventos.nombre = evento.getString("event_id")
+//                listaMunicipio.loc_localName = municipio.getString("id_status ")
+//                listaMunicipio.status = municipio.getString("estado")
+
+                datos.add( listaEventos )
+            }
+            adapter.llenar(datos)
+        }
     }
 }

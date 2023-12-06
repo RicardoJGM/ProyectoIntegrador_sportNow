@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.RadioButton
 import android.widget.TextView
+import org.w3c.dom.Text
 
 class EventDetailsActivity : AppCompatActivity() {
     private lateinit var context: Context
@@ -54,7 +57,7 @@ class EventDetailsActivity : AppCompatActivity() {
             btCancelarParticipante.visibility = View.VISIBLE
         //}
 
-
+        configUI()
 
         btParticiparEvento.setOnClickListener {
 
@@ -79,6 +82,29 @@ class EventDetailsActivity : AppCompatActivity() {
         }
 
         btEliminarEvento.setOnClickListener {
+
+        }
+    }
+
+    private fun configUI() {
+        if (intent != null) {
+
+            val nombre: String? = intent.getStringExtra("nombre")
+            val fechaHoraInicio: String? = intent.getStringExtra("fechaHoraInicio")
+            val municipio: String? = intent.getStringExtra("municipio")
+            val etiquetas: String? = intent.getStringExtra("etiquetas")
+
+            val nombreEvento: TextView = findViewById(R.id.tvNombreEventoDetalles)
+            nombreEvento.setText(nombre)
+
+            val horaInicio: TextView = findViewById(R.id.tvFechaInicioEventoDetalles)
+            horaInicio.setText(fechaHoraInicio)
+
+            val ciudad: TextView = findViewById(R.id.tvMunicipioEventoDetalles)
+            ciudad.setText(municipio)
+
+            val categorias: TextView = findViewById(R.id.tvLabelsEventoDetalles)
+            categorias.setText(etiquetas)
 
         }
     }

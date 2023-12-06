@@ -121,7 +121,7 @@ class EventRegisterActivity : AppCompatActivity() {
             url,
             null,
             Response.Listener { response ->
-                procesarRespuesta(response)
+                llenarListaMunicipios(response)
             },
             Response.ErrorListener { error ->
                 Toast.makeText(this, "Error: $error", Toast.LENGTH_SHORT).show()
@@ -130,7 +130,7 @@ class EventRegisterActivity : AppCompatActivity() {
         requestQueue.add( request )
     }
 
-    private fun procesarRespuesta(response: JSONObject?) {
+    private fun llenarListaMunicipios(response: JSONObject?) {
         if (response != null && response.getBoolean("exito")){
             val lista : JSONArray = response.getJSONArray("lista")
             val datos : ArrayList<String> = ArrayList()
