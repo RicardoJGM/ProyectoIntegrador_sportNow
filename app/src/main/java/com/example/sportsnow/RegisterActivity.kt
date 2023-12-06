@@ -6,8 +6,16 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.auth
 
 class RegisterActivity : AppCompatActivity() {
+    private lateinit var auth : FirebaseAuth
+    private lateinit var mAuth : FirebaseAuth
+
     lateinit var etNombreUsuario : EditText
     lateinit var etApellidoP : EditText
     lateinit var etApellidoM : EditText
@@ -20,6 +28,9 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro_usuario)
+
+        mAuth = FirebaseAuth.getInstance()
+        auth = Firebase.auth
 
         etNombreUsuario         = findViewById(R.id.etNombreUsuarioRegistro)
         etApellidoP             = findViewById(R.id.etApellidoPaternoRegistro)
@@ -53,13 +64,27 @@ class RegisterActivity : AppCompatActivity() {
         val etConfirmPassword   = etConfirmPassword.text
         val etDate              = etDate.text
 
-//        Log.i("RegisterActivity.registrarUsuario", nomUsuario.toString())
-//        Log.i("RegisterActivity", etApellidoP.toString())
-//        Log.i("RegisterActivity", etApellidoM.toString())
-//        Log.i("RegisterActivity", etEmail.toString())
-//        Log.i("RegisterActivity", etPassword.toString())
-//        Log.i("RegisterActivity", etConfirmPassword.toString())
-//        Log.i("RegisterActivity", etDate.toString())
+        crearUsuario(etEmail.toString(), etPassword.toString())
+    }
+    private fun crearUsuario(email: String, password: String) {
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    val user = auth.currentUser
+                    updateUI(user)
+                } else {
+                    Toast.makeText(
+                        baseContext,
+                        "Authentication failed.",
+                        Toast.LENGTH_SHORT,
+                    ).show()
+                    updateUI(null)
+                }
+            }
+    }
 
+    private fun updateUI(user: FirebaseUser?) {
+        val intent = Intent (this,MainActivity::class.java)
+        startActivity(intent)
     }
 }
