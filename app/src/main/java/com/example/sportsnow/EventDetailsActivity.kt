@@ -61,7 +61,8 @@ class EventDetailsActivity : AppCompatActivity() {
         }
 
         btVerForo.setOnClickListener {
-
+            val intent = Intent(this, ForoActivity::class.java)
+            startActivity(intent)
         }
 
         btCancelarParticipante.setOnClickListener {

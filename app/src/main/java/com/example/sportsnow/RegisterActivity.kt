@@ -48,15 +48,16 @@ class RegisterActivity : AppCompatActivity() {
         btSave                  = findViewById(R.id.btSaveRegister)
 
         btCancel.setOnClickListener {
-            finish()
             val intent = Intent(this, InicioActivity::class.java)
             startActivity(intent)
+            finish()
         }
         btSave.setOnClickListener {
             registrarUsuario()
             finish()
             val intent = Intent(this, InicioActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 

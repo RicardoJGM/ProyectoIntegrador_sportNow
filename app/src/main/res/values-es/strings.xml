@@ -67,4 +67,6 @@
     <string name="button_delete">Eliminar</string>
     <string name="event_labels">Etiquetas (tipo de evento, tipo de actividad)</string>
     <string name="cancel_inscription_event">Cancelar registro al evento</string>
+    <string name="see_forum">Ver foro</string>
+    <string name="hint_message_forum">¿Tienes algo en mente?</string>
 </resources>
