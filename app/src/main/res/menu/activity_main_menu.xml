@@ -3,13 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/app_bar_search"
-        android:icon="@drawable/baseline_search_24"
-        android:title="Search"
-        app:actionViewClass="android.widget.SearchView"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/opc_buscar"
+        android:id="@+id/opc_filtrar"
         android:icon="@drawable/baseline_search_24"
         android:title="Item"
         app:showAsAction="always" />
@@ -21,9 +15,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
             <item
+                android:id="@+id/opc_usuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:title="Item" />
+                android:title="@string/user_details" />
         </menu>
     </item>
 </menu>

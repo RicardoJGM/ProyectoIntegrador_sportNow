@@ -9,26 +9,26 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/user_details"
+        android:textAlignment="center"
         android:textAppearance="@style/MyActionBarTitleText"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="409dp"
-        android:layout_height="672dp"
+        android:layout_width="0dp"
+        android:layout_height="671dp"
+        android:layout_marginTop="16dp"
         android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView12">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabEditarUsuario"
@@ -127,13 +127,17 @@
 
         <Button
             android:id="@+id/btCancelarCambiosUsuario"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:textColor="#E30505"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginBottom="16dp"
             android:text="@string/button_cancel"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeWidth="1dp"
+            app:strokeColor="#E80B0B" />
 
         <Button
             android:id="@+id/btGuardarCambiosUsuario"
@@ -142,6 +146,7 @@
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="16dp"
             android:text="@string/button_save"
+            android:backgroundTint="#FFC107"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -161,6 +166,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
             android:text="@string/name_user"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -215,7 +221,7 @@
             android:layout_width="181dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="58dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="58dp"
             android:background="@android:drawable/editbox_dropdown_dark_frame"
             android:ems="10"

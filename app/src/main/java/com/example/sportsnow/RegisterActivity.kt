@@ -22,13 +22,14 @@ class RegisterActivity : AppCompatActivity() {
         val btSave : Button = findViewById(R.id.btSaveRegister)
 
         btCancel.setOnClickListener {
-            finish()
             val intent = Intent(this, InicioActivity::class.java)
             startActivity(intent)
+            finish()
         }
         btSave.setOnClickListener {
             val intent = Intent(this, InicioActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
     }
