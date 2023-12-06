@@ -17,6 +17,7 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONArray
 import org.json.JSONObject
+import java.lang.StringBuilder
 
 class EventRegisterActivity : AppCompatActivity() {
     private lateinit var etNewEventName : EditText
@@ -39,6 +40,7 @@ class EventRegisterActivity : AppCompatActivity() {
     private lateinit var rbCaridad : RadioButton
     private lateinit var rbCompetition : RadioButton
     private lateinit var rbPrivateEvent : RadioButton
+
     private lateinit var rbBaseball : RadioButton
     private lateinit var rbSoccer : RadioButton
     private lateinit var rbSwimming : RadioButton
@@ -68,6 +70,7 @@ class EventRegisterActivity : AppCompatActivity() {
         rbCaridad = findViewById(R.id.rbCaridad)
         rbCompetition = findViewById(R.id.rbCompetition)
         rbPrivateEvent = findViewById(R.id.rbPrivateEvent)
+
         rbSoccer = findViewById(R.id.rbSoccer)
         rbBaseball = findViewById(R.id.rbBaseball)
         rbSwimming = findViewById(R.id.rbSwimming)
@@ -112,6 +115,24 @@ class EventRegisterActivity : AppCompatActivity() {
         val NewEventParticipants = etNewEventParticipants
         val municipioSeleccionado = spMunicipio.selectedItemPosition+1
 
+        val builderTpEvento = StringBuilder()
+        val builderTpActividad = StringBuilder()
+
+
+        val social = if (rbSocialEvent.isChecked) builderTpEvento.append(rbSocialEvent.text.toString(), " ") else ""
+        val caridad = if (rbCaridad.isChecked) builderTpEvento.append(rbCaridad.text.toString()) else ""
+        val competicion = if (rbCompetition.isChecked) builderTpEvento.append(rbCompetition.text )else ""
+        val privado = if (rbPrivateEvent.isChecked) builderTpEvento.append(rbPrivateEvent.text) else ""
+
+        val tipoEvento = builderTpEvento.toString()
+
+        val futbol = if (rbSoccer.isChecked) builderTpActividad.append(rbSoccer.text.toString(), " ") else ""
+        val beisbol = if (rbBaseball.isChecked) builderTpActividad.append(rbBaseball.text.toString(), " ") else ""
+        val natacion = if (rbSwimming.isChecked) builderTpActividad.append(rbSwimming.text.toString(), " ") else ""
+        val basquetbol = if (rbBasketball.isChecked) builderTpActividad.append(rbBasketball.text.toString(), " ") else ""
+
+        val tipoActividad = builderTpActividad.toString()
+
         val status = 1;
 
         val url = "http://192.168.1.161/sportnow/guardarEvento.php"
@@ -125,6 +146,8 @@ class EventRegisterActivity : AppCompatActivity() {
             NewEventAddress.text.toString(),
             NewEventDesc.text.toString(),
             NewEventSponsors.text.toString(),
+            tipoEvento,
+            tipoActividad,
             NewEventParticipants.text.toString(),
             municipioSeleccionado.toString(),
             status.toString(),
@@ -139,10 +162,13 @@ class EventRegisterActivity : AppCompatActivity() {
         EventAddress: String,
         EventDesc: String,
         EventSponsors: String,
+        tipoEvento: String,
+        tipoActividad: String,
         EventParticipants: String,
         municipioPosicion: String,
         status: String,
-        url: String
+        url: String,
+
     ) {
         val requestQueue = Volley.newRequestQueue(this)
 
@@ -156,6 +182,8 @@ class EventRegisterActivity : AppCompatActivity() {
         mapa.put("EventAddress",EventAddress)
         mapa.put("EventDesc",EventDesc)
         mapa.put("EventSponsors",EventSponsors)
+        mapa.put("tipoEvento",tipoEvento)
+        mapa.put("tipoActividad",tipoActividad)
         mapa.put("EventParticipants",EventParticipants)
         mapa.put("municipioSeleccionado",municipioPosicion)
         mapa.put("status",status)
@@ -212,13 +240,7 @@ class EventRegisterActivity : AppCompatActivity() {
                 val municipio = lista.getJSONObject(i)
 
                 val listaMunicipio = Municipio()
-
-//                listaMunicipio.id_localLocation = municipio.getString("id_localLocation")
-//                listaMunicipio.loc_localNumber = municipio.getString("loc_localNumber")
                 listaMunicipio.loc_localName = municipio.getString("loc_localName")
-//                listaMunicipio.loc_localName = municipio.getString("id_status ")
-//                listaMunicipio.status = municipio.getString("estado")
-
                 datos.add( listaMunicipio.loc_localName )
             }
             val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, datos)
