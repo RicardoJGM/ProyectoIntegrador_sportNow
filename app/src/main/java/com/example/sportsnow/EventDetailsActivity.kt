@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -24,6 +25,8 @@ class EventDetailsActivity : AppCompatActivity() {
     private lateinit var btParticiparEvento : Button
     private lateinit var btEliminarEvento : Button
     private lateinit var btEditarEvento : Button
+    private lateinit var btCancelarParticipante : Button
+    private lateinit var btVerForo : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event_details)
@@ -41,8 +44,27 @@ class EventDetailsActivity : AppCompatActivity() {
         btParticiparEvento = findViewById(R.id.btParticiparEvento)
         btEditarEvento = findViewById(R.id.btEditarEvento)
         btEliminarEvento = findViewById(R.id.btEliminarEvento)
+        btVerForo = findViewById(R.id.btVerForo)
+        btCancelarParticipante = findViewById(R.id.btCancelarParticipante)
+
+
+        //if( usuario ya esta participando ){
+            btParticiparEvento.visibility = View.GONE
+            btVerForo.visibility = View.VISIBLE
+            btCancelarParticipante.visibility = View.VISIBLE
+        //}
+
+
 
         btParticiparEvento.setOnClickListener {
+
+        }
+
+        btVerForo.setOnClickListener {
+
+        }
+
+        btCancelarParticipante.setOnClickListener {
 
         }
 
