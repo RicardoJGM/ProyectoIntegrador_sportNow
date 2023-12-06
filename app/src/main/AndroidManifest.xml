@@ -46,6 +46,9 @@
         <activity
             android:name=".EventRegisterActivity"
             android:exported="false" />
+        <activity
+            android:name=".ResetPasswordActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

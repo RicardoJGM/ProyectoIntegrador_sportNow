@@ -46,6 +46,12 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
+
+        btResPassword.setOnClickListener{
+            val intent = Intent(this, ResetPasswordActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun iniciarSesion(email: String, password: String) {
