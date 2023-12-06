@@ -145,7 +145,7 @@ class EventRegisterActivity : AppCompatActivity() {
 
         val status = 1;
 
-        val url = "http://192.168.1.161/sportnow/guardarEvento.php"
+        val url = "http://10.200.31.209/sportnow/guardarEvento.php"
 
         enviarDatos(
             NewEventName.text.toString() ,
